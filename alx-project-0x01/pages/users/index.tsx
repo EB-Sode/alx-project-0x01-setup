@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Header from "../../components/layout/Header";
 import { UserProps } from "@/interfaces";
 import UserModal from "../../components/common/UserModal";
+import UserCard from "@/components/common/UserCard";
 
 
 interface UsersPageProps {
@@ -54,23 +55,7 @@ const Users: React.FC<UsersPageProps> = ({ posts }) => {
 
         <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
           {posts.map((user) => (
-            <div key={user.id} className="bg-white shadow rounded-lg p-6">
-              <h2 className="text-xl font-semibold mb-2">{user.name}</h2>
-              <p className="text-gray-600">@{user.username}</p>
-              <p className="text-gray-600">{user.email}</p>
-              <p className="text-sm text-gray-500">
-                {user.address?.city}, {user.address?.street}
-              </p>
-              <button
-                onClick={() => {
-                  setSelectedUser(user);
-                  setIsModalOpen(true);
-                }}
-                className="mt-4 px-4 py-2 bg-blue-500 text-white rounded hover:bg-blue-600"
-              >
-                View / Edit
-              </button>
-            </div>
+            <UserCard key={user.id} {...user} />
           ))}
         </div>
       </main>
@@ -79,8 +64,9 @@ const Users: React.FC<UsersPageProps> = ({ posts }) => {
       <UserModal
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
-        user={selectedUser}
-      />
+        user={selectedUser} onSubmit={function (post: UserProps): void {
+          throw new Error("Function not implemented.");
+        } }      />
     </div>
   );
 };

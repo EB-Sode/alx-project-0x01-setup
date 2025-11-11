@@ -82,6 +82,7 @@ export interface UserData {
 export interface UserModalProps {
   user: UserData;        // the user data being displayed in the modal
   isOpen: boolean;       // whether the modal is visible or not
-  onSubmit: (post: PostData) => void;
   onClose: () => void;   // function to close the modal
+  onSubmit: (post: UserProps) => void;
+  
 }
