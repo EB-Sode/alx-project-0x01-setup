@@ -1,9 +1,9 @@
 // components/UserCard.tsx
 import React from "react";
-import { Welcome } from "@/interfaces";
+import { UserProps } from "@/interfaces";
 
 interface UserCardProps {
-  user: Welcome;
+  user: UserProps;
 }
 
 export default function UserCard({ user }: UserCardProps) {

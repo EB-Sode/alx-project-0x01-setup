@@ -11,7 +11,7 @@ export interface HomeProps {
 }
 
 
-export interface Welcome {
+export interface UserProps {
     id:       number;
     name:     string;
     username: string;
