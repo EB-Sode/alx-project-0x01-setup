@@ -1,15 +1,15 @@
-// components/UserCard.tsx
+// components/common/UserCard.tsx
 import React from "react";
-import { UserProps } from "@/interfaces";
+import { UserProps } from "../../interfaces";
 
-interface UserCardProps {
+export interface UserCardProps {
   user: UserProps;
 }
 
-export default function UserCard({ user }: UserCardProps) {
+// ✅ Correct: destructure { user } from props
+const UserCard: React.FC<UserProps> = ({ user }) => {
   return (
     <div className="max-w-sm w-full bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
-      {/* Header Section */}
       <div className="flex items-center justify-between mb-4">
         <h2 className="text-xl font-semibold text-gray-900 dark:text-white">
           {user.name}
@@ -17,7 +17,6 @@ export default function UserCard({ user }: UserCardProps) {
         <span className="text-sm text-gray-500">@{user.username}</span>
       </div>
 
-      {/* Contact Info */}
       <div className="space-y-2 text-gray-700 dark:text-gray-300">
         <p>
           <span className="font-medium">📧 Email:</span> {user.email}
@@ -38,7 +37,6 @@ export default function UserCard({ user }: UserCardProps) {
         </p>
       </div>
 
-      {/* Address */}
       <div className="mt-4 border-t border-gray-200 dark:border-gray-700 pt-3">
         <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-1">
           Address
@@ -53,7 +51,6 @@ export default function UserCard({ user }: UserCardProps) {
         </p>
       </div>
 
-      {/* Company */}
       <div className="mt-4 border-t border-gray-200 dark:border-gray-700 pt-3">
         <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-200 mb-1">
           Company
@@ -68,4 +65,6 @@ export default function UserCard({ user }: UserCardProps) {
       </div>
     </div>
   );
-}
+};
+
+export default UserCard;

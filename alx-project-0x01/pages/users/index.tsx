@@ -19,7 +19,7 @@ const Users: React.FC<UsersPageProps> = ({ posts }) => {
             {/* ✅ Dynamic Rendering of UserCard */}
             <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {posts.map((user) => (
-                <UserCard key={user.id} user={user} />
+                <UserCard key={user.id} {...user} />
             ))}
             </div>
             </main>
