@@ -2,11 +2,6 @@
 import React from "react";
 import { UserProps } from "../../interfaces";
 
-export interface UserCardProps {
-  user: UserProps;
-}
-
-// ✅ Correct: destructure { user } from props
 const UserCard: React.FC<UserProps> = ({ user }) => {
   return (
     <div className="max-w-sm w-full bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 hover:shadow-xl transition-shadow duration-300">
